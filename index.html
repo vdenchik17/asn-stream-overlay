@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=600, height=100, initial-scale=1">
+<title>ASN Stream Telegram</title>
+
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent !important;
+    overflow: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.overlay-wrap {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent !important;
+}
+
+.overlay {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    opacity: 0;
+    transform: translateY(12px);
+
+    animation: showTelegram 13s ease-in-out infinite;
+}
+
+.tg-icon {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+
+    filter:
+        drop-shadow(0 1px 2px rgba(0,0,0,0.45));
+}
+
+.tg-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.username {
+    font-family:
+        Arial Black,
+        Helvetica Neue,
+        Arial,
+        sans-serif;
+
+    font-size: 34px;
+    font-weight: 900;
+
+    color: #ffffff;
+
+    white-space: nowrap;
+
+    -webkit-text-stroke: 1.2px rgba(0,0,0,0.75);
+
+    text-shadow:
+        0 2px 3px rgba(0,0,0,0.65);
+}
+
+
+/*
+   13 секунд:
+   0–1.2     поява
+   1.2–6.2   видно
+   6.2–7.4   зникнення
+   7.4–13    невидиме
+*/
+
+@keyframes showTelegram {
+
+    0% {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    9.2% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    47.7% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    56.9% {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="overlay-wrap">
+
+    <div class="overlay">
+
+        <span class="tg-icon">
+
+            <svg
+                viewBox="0 0 240 240"
+                xmlns="http://www.w3.org/2000/svg">
+
+                <circle
+                    cx="120"
+                    cy="120"
+                    r="120"
+                    fill="#229ED9"/>
+
+                <path
+                    fill="#FFFFFF"
+                    d="M178.5 68.4
+                       152 187.6
+                       c-2 8.9-7.3 11.1-14.7 6.9
+                       l-40.6-30
+                       -19.6 18.9
+                       c-2.2 2.2-4 4-8.1 4
+                       l2.9-41.2
+                       75-67.8
+                       c3.3-2.9-.7-4.5-5-1.6
+                       l-92.7 58.4
+                       -39.9-12.5
+                       c-8.7-2.7-8.8-8.7 1.8-12.9
+                       L167.4 57
+                       c7.2-2.7 13.6 1.7 11.1 11.4z"/>
+            </svg>
+
+        </span>
+
+        <span class="username">
+            @asn_stream
+        </span>
+
+    </div>
+
+</div>
+
+</body>
+</html>
